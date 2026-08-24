@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090909"><title>NEXTFLIX — A Birthday Premiere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to birthday content</a>
+  <div id="opening" class="screen opening" aria-live="polite"><div><p class="logo logo-xl">NEXTFLIX</p><p>A special birthday premiere made only for Ria.</p><div class="loader"><i></i></div></div></div>
+  <section id="profiles" class="screen profiles" hidden><p class="logo">NEXTFLIX</p><div><h1>Who’s celebrating?</h1><div id="profileList" class="profile-list" aria-label="Choose a Ria profile"></div></div></section>
+  <main id="main" hidden>
+    <header class="nav"><a class="logo" href="#hero" aria-label="NEXTFLIX home">NEXTFLIX</a></header>
+    <section id="hero" class="hero"><div class="hero-art" role="img" aria-label="Cinematic birthday videos of Ria"><video id="heroVideoA" class="hero-video active" autoplay muted playsinline preload="metadata"></video><video id="heroVideoB" class="hero-video" autoplay muted playsinline preload="metadata"></video><div class="hero-shade"></div></div><div class="hero-content"><h1>Happy Birthday, <em>Ria!</em></h1><p class="synopsis">Today, Ria celebrates another beautiful chapter filled with happiness, dreams, love, and unforgettable memories.</p><button id="play" class="btn primary">▶ <span>Play Surprise</span></button></div><button id="heroVideoPlay" class="hero-video-play" aria-label="Play hero background" hidden>▶</button></section>
+    <section id="rows" class="rows" aria-label="Ria's birthday collections"></section>
+    <footer><p class="logo">NEXTFLIX</p><p>Made with love, especially for Ria.</p></footer>
+  </main>
+  <dialog id="cardModal" class="modal"><button class="icon close" aria-label="Close details">×</button><div id="modalArtwork" class="modal-artwork logo-art" aria-hidden="true"></div><div><p class="eyebrow">A RIAFLIX ORIGINAL</p><h2 id="modalTitle"></h2><p id="modalText"></p></div></dialog>
+  <section id="player" class="player surprise-player" hidden aria-label="Ria's romantic birthday movie"><div class="movie-stage"><video id="finalMovie" class="final-movie" controls playsinline preload="metadata"><source id="movieSource" type="video/mp4">Your browser does not support HTML video.</video><p id="movieError" class="movie-error" role="alert" hidden>We couldn't play the birthday movie on this device. Please try Replay or download the 4K master.</p></div><button id="closePlayer" class="icon player-close" aria-label="Close surprise">×</button><div class="surprise-controls" aria-label="Birthday movie controls"><button id="moviePause" class="surprise-control" aria-label="Pause movie">Ⅱ <span>Pause</span></button><button id="movieVolume" class="surprise-control" aria-label="Mute movie" aria-pressed="false">🔊 <span>Sound on</span></button><button id="movieReplay" class="surprise-control" aria-label="Replay movie">↻ <span>Replay</span></button><button id="surpriseFullscreen" class="surprise-control" aria-label="Enter fullscreen">⛶ <span>Fullscreen</span></button><a id="masterDownload" class="surprise-control" type="video/mp4" download="ria-romantic-movie-4k.mp4" aria-label="Download 4K master">⇩ <span>4K master</span></a></div></section>
+  <section id="finale" class="finale" hidden><div id="particles" aria-hidden="true"></div><div><p class="eyebrow">THE END · FOR NOW</p><h1>Thank you for being part of our favorite story.</h1><button id="replay" class="btn primary">↻ <span>Replay the surprise</span></button><p class="credit">Made with love, especially for Ria.</p></div></section>
+  <noscript>This birthday premiere needs JavaScript enabled.</noscript>
+  <script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>

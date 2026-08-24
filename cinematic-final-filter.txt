@@ -1,0 +1,32 @@
+[0:v]trim=start=0.5:end=6.5,setpts=1.10*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=.050:gs=.014:rh=-.010,eq=saturation=.78:contrast=.94[v0];
+[0:v]trim=start=8.2:end=15.5,setpts=1.10*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=.045:gs=.012:rh=-.006,eq=saturation=.80:contrast=.945[v1];
+[0:v]trim=start=15.8:end=19.2,setpts=1.15*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=.038:gs=.010,eq=saturation=.81:contrast=.95[v2];
+[1:v]trim=start=2:end=18,setpts=1.06*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=.025:rh=.012:gh=.006,eq=saturation=.83:contrast=.95[v3];
+[1:v]trim=start=22:end=38,setpts=1.05*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=.016:rh=.022:gh=.010,eq=saturation=.85:contrast=.955[v4];
+[1:v]trim=start=40:end=54.5,setpts=1.08*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=.010:rh=.032:gh=.014,eq=saturation=.87:contrast=.96[v5];
+[1:v]trim=start=55.5:end=67.2,setpts=1.12*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=.004:rh=.038:gh=.016,eq=saturation=.88:contrast=.96[v6];
+[2:v]trim=start=0:end=18,setpts=1.08*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=.002:rh=.040:gh=.017,eq=saturation=.88:contrast=.96[v7];
+[2:v]trim=start=22:end=38,setpts=1.08*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=-.004:rh=.044:gh=.018,eq=saturation=.89:contrast=.965[v8];
+[2:v]trim=start=45:end=69,setpts=1.06*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=-.006:rh=.048:gh=.020,eq=saturation=.90:contrast=.97[v9];
+[2:v]trim=start=83:end=101,setpts=1.08*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=-.008:rh=.052:gh=.021,eq=saturation=.91:contrast=.97[v10];
+[2:v]trim=start=122:end=142,setpts=1.08*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=-.010:rh=.058:gh=.024,eq=saturation=.92:contrast=.975[v11];
+[2:v]trim=start=150:end=164.5,setpts=1.12*(PTS-STARTPTS),fps=30,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,colorbalance=bs=-.012:rh=.064:gh=.027,eq=saturation=.93:contrast=.98,tpad=stop_mode=clone:stop_duration=0.67[v12];
+[v0][v1]xfade=transition=fade:duration=0.8:offset=5.8[x1];
+[x1][v2]xfade=transition=fade:duration=0.8:offset=13.03[x2];
+[x2][v3]xfade=transition=fade:duration=0.8:offset=16.14[x3];
+[x3][v4]xfade=transition=fade:duration=0.8:offset=32.3[x4];
+[x4][v5]xfade=transition=fade:duration=0.8:offset=48.3[x5];
+[x5][v6]xfade=transition=fade:duration=0.8:offset=63.16[x6];
+[x6][v7]xfade=transition=fade:duration=0.8:offset=75.464[x7];
+[x7][v8]xfade=transition=fade:duration=0.8:offset=94.104[x8];
+[x8][v9]xfade=transition=fade:duration=0.8:offset=110.584[x9];
+[x9][v10]xfade=transition=fade:duration=0.8:offset=135.224[x10];
+[x10][v11]xfade=transition=fade:duration=0.8:offset=153.864[x11];
+[x11][v12]xfade=transition=fade:duration=0.8:offset=174.664,curves=all='0/0.025 0.18/0.17 0.72/0.75 1/0.985',noise=alls=1.25:allf=t+u,vignette=angle=PI/6.2:eval=frame,split=2[base][glow];
+[glow]gblur=sigma=9,eq=brightness=.025[soft];
+[base][soft]blend=all_mode=screen:all_opacity=.07,drawbox=x=0:y=0:w=iw:h=34:color=black:t=fill,drawbox=x=0:y=ih-34:w=iw:h=34:color=black:t=fill,drawtext=fontfile='C\:/Windows/Fonts/georgiab.ttf':text='A Birthday Story Made for Ria':fontcolor=white:fontsize=58:x=(w-text_w)/2:y=(h-text_h)/2:shadowcolor=black@.85:shadowx=3:shadowy=3:enable='between(t,0,6.8)':alpha='if(lt(t,1.2),t/1.2,if(lt(t,5.6),1,(6.8-t)/1.2))',drawtext=fontfile='C\:/Windows/Fonts/georgiai.ttf':text='Some memories are worth replaying.':fontcolor=white:fontsize=50:x=(w-text_w)/2:y=h*.72:shadowcolor=black@.9:shadowx=3:shadowy=3:enable='between(t,48.3,55.3)':alpha='if(lt(t,49.5),(t-48.3)/1.2,if(lt(t,54.1),1,(55.3-t)/1.2))',drawtext=fontfile='C\:/Windows/Fonts/georgiab.ttf':text='Happy Birthday, Ria. Maybe we’ll see each other again soon.':fontcolor=white:fontsize=39:x=(w-text_w)/2:y=h*.70:shadowcolor=black@.9:shadowx=3:shadowy=3:enable='between(t,175,187)':alpha='if(lt(t,176.5),(t-175)/1.5,if(lt(t,185.5),1,(187-t)/1.5))',drawtext=fontfile='C\:/Windows/Fonts/georgiai.ttf':text='Made with love, especially for Ria.':fontcolor=white:fontsize=42:x=(w-text_w)/2:y=(h-text_h)/2:shadowcolor=black@.9:shadowx=3:shadowy=3:enable='between(t,187,191.574)':alpha='if(lt(t,188),(t-187),if(lt(t,190.3),1,(191.574-t)/1.274))',fade=t=in:st=0:d=1.2,fade=t=out:st=187.574:d=4,format=yuv420p[outv];
+[3:a]aresample=48000,atrim=0:191.573979,asetpts=PTS-STARTPTS,highpass=f=75,lowpass=f=12500,afftdn=nr=9:nf=-38,acompressor=threshold=.08:ratio=2.2:attack=15:release=180:makeup=1.25,loudnorm=I=-16:LRA=7:TP=-1.5,asplit=2[voice][duckkey];
+[4:a]aresample=48000,atrim=0:191.573979,asetpts=PTS-STARTPTS,volume=.42,afade=t=in:st=0:d=2,afade=t=out:st=187.573979:d=4[music];
+[music][duckkey]sidechaincompress=threshold=.035:ratio=2.6:attack=90:release=1100:makeup=1[ducked];
+[voice][ducked]amix=inputs=2:duration=first:weights='1 1':normalize=0,alimiter=limit=.92:attack=5:release=100[outa]
+

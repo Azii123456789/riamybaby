@@ -1,0 +1,1 @@
+[0:v]eq=saturation='0.79+0.12*t/191.6':contrast='0.93+0.045*t/191.6':brightness='0.003+0.005*t/191.6':eval=frame,colorbalance=bs=0.030:gs=0.010:rh=0.042:gh=0.018:bh=-0.006:pl=1,curves=all='0/0.022 0.18/0.17 0.72/0.75 1/0.985',noise=alls=1.8:allf=t+u,vignette=angle=PI/5.8:eval=frame,fade=t=out:st=187.6:d=4,format=yuv420p[outv]

@@ -1,0 +1,4 @@
+[1:a]aresample=48000,atrim=0:191.573979,asetpts=PTS-STARTPTS,volume=0.427,asplit=2[narration][duckkey];
+[2:a]aresample=48000,atrim=0:191.573979,asetpts=PTS-STARTPTS,volume=0.905,volume=0.38,afade=t=in:st=0:d=2,afade=t=out:st=187.573979:d=4[music];
+[music][duckkey]sidechaincompress=threshold=0.063:ratio=2.2:attack=100:release=1200:makeup=1[ducked];
+[narration][ducked]amix=inputs=2:duration=first:weights='1 1':normalize=0,alimiter=limit=0.891:attack=5:release=100[mix]
